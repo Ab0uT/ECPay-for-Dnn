@@ -1,0 +1,36 @@
+﻿[Css:{ path: "~/DesktopModules/ECPay/Content/font-awesome.min.css"}]
+[Css:{ path: "~/DesktopModules/ECPay/Content/datepicker.min.css"}]
+[Css:{ path: "~/DesktopModules/ECPay/Content/main.css"}]
+
+<div class="container" ng-cloak>
+    <div ui-view></div>
+</div>
+
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/angular.min.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/angular-resource.min.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/angular-ui-router.min.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/ui-bootstrap-tpls-3.0.4.min.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/datepicker.min.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/datepicker.zh.js"}]
+
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/app.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/components.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/Detail/DetailController.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/Paid/PaidComponent.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/Paid/PaidController.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/Paid/PaidService.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/Processing/ProcessingComponent.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/Processing/ProcessingController.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/Processing/ProcessingService.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/ECPay/ECPayConstant.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/ECPay/ECPayController.js"}]
+[JavaScript:{ path: "~/DesktopModules/ECPay/Scripts/apps/ECPay/ECPayService.js"}]
+
+<script type="text/javascript">
+    var moduleId = parseInt("[ModuleContext:ModuleId]");
+    var portalId = parseInt("[ModuleContext:PortalId]");
+    var sf = $.ServicesFramework(moduleId);
+    var moduleName = "ECPay";
+    if ('[ModuleContext:EditMode]' === 'True')
+        var editMode = true;
+</script>

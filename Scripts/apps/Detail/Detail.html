@@ -1,0 +1,120 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">訂單編號{{value.OrderNumber}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="container">
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th scope="col">
+                    </th>
+                    <th scope="col">
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        姓名
+                    </th>
+                    <td>
+                        {{value.LastName}} {{value.FirstName}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        信箱
+                    </th>
+                    <td>
+                        {{value.Email}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        地址
+                    </th>
+                    <td>
+                        {{value.PostalCode}} {{value.Unit}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        物流
+                    </th>
+                    <td>
+                        {{value.Shipping}}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        物品
+                    </th>
+                    <td>
+                        <table class="table table-dark">
+                            <thead class="text-info">
+                                <tr>
+                                    <th scope="col">
+                                        名稱
+                                    </th>
+                                    <th scope="col">
+                                        型號
+                                    </th>
+                                    <th scope="col">
+                                        數量
+                                    </th>
+                                    <th scope="col">
+                                        單品
+                                    </th>
+                                    <th scope="col">
+                                        總額
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-info">
+                                <tr ng-repeat="m in items">
+                                    <td>
+                                        {{m.ProductName}}
+                                    </td>
+                                    <td>
+                                        {{m.Model}}
+                                    </td>
+                                    <td>
+                                        {{m.Qty}}
+                                    </td>
+                                    <td>
+                                        {{m.ProductPrice}}
+                                    </td>
+                                    <td>
+                                        {{m.ProductTotal}}
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="text-info">
+                                <tr>
+                                    <td>
+                                        運費
+                                    </td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>
+                                        {{value.Freight}}
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <h4>總金額: {{value.Total}}</h4>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>

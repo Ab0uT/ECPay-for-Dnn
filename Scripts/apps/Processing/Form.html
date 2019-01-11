@@ -1,0 +1,90 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">物流訂單</h3>
+</div>
+<div class="modal-body" id="modal-body">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>訂單金額: {{vm.Total}}</td>
+                    <td>物流類型: {{vm.Shipping}}</td>
+                    <td ng-if="vm.LogisticsType == 'CVS'">收件門市: {{vm.StoreName}}</td>
+                </tr>
+            </thead>
+        </table>
+        <ng-form name="ecpayForm">
+
+            <div class="form-group">
+                <label>廠商訂單編號</label>
+                <input type="text" class="form-control" ng-model="ecpay.MerchantTradeNo">
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">*</span>收件人姓名</label>
+                <input type="text" class="form-control" ng-model="ecpay.ReceiverName" required>
+            </div>
+            <div class="form-group">
+                <label><span class="text-danger">*</span>收件人手機</label>
+                <input type="text" class="form-control" ng-model="ecpay.ReceiverCellPhone" required>
+            </div>
+            <div class="HomeType" ng-if="vm.LogisticsType == 'Home'">
+                <div class="form-row">
+                    <div class="col-3">
+                        <label><span class="text-danger">*</span>郵遞區號</label>
+                        <input type="text" class="form-control" ng-model="ecpay.ReceiverZipCode" required>
+                    </div>
+                    <div class="col-9">
+                        <label><span class="text-danger">*</span>收件地址</label>
+                        <input type="text" class="form-control" ng-model="ecpay.ReceiverAddress">
+                    </div>
+                </div>
+                <div class="form-group" ng-if="vm.LogisticsSubType == 'ECAN'">
+                    <label><span class="text-danger">*</span>包裹件數</label>
+                    <input type="text" class="form-control" ng-model="ecpay.PackageCount" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">*</span>溫層</label>
+                    <select type="text" class="form-control" ng-model="ecpay.Temperature" ng-options="m.value as m.name for m in selects.Temperature track by m.value" required>
+                        <option value="">-- 請選擇 --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">*</span>距離</label>
+                    <select type="text" class="form-control" ng-model="ecpay.Distance" ng-options="m.value as m.name for m in selects.Distance track by m.value" required>
+                        <option value="">-- 請選擇 --</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">*</span>規格(長+寬+高)</label>
+                    <select type="text" class="form-control" ng-model="ecpay.Specification" ng-options="m.value as m.name for m in selects.Specification track by m.value" required>
+                        <option value="">-- 請選擇 --</option>
+                    </select>
+                </div>
+                <div class="form-group" ng-if="vm.LogisticsSubType == 'ECAN'">
+                    <label><span class="text-danger">*</span>預計送達日期</label>
+                    <input type="date" placeholder="yyyy/MM/dd" class="form-control" id="datePicker" ng-model="ecpay.ScheduledDeliveryDate" required>
+                    <span class="form-text text-muted">當子物流選擇<span class="text-danger">宅配通</span>時,日期設定為今日加上3天後,如今日2018/01/01 需指定為 2018/01/04</span>
+                </div>
+                <div class="form-group">
+                    <label>預定送達時段</label>
+                    <select type="text" class="form-control" ng-model="ecpay.ScheduledDeliveryTime" ng-options="m.value as m.name for m in selects.ScheduledDeliveryTime track by m.value">
+                        <option value="">-- 請選擇 --</option>
+                    </select>
+                    <span class="form-text text-muted">當子物流選擇<span class="text-danger">宅配通</span>時，可選擇以下時段: 早午 9~17、早晚 9~12 & 17~20、午晚 13~20</span>
+                </div>
+            </div>
+            <div class="pickupType" ng-if="vm.LogisticsType == 'CVS'">
+                <div class="form-group" ng-if="vm.LogisticsSubType == 'UNIMART'">
+                    <label>收件人Email</label>
+                    <input type="text" class="form-control" ng-model="ecpay.ReceiverEmail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>備註</label>
+                <input type="text" class="form-control" ng-model="ecpay.Remark">
+            </div>
+        </ng-form>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="ecpaySubmit(ecpayForm)" ng-disabled="ecpayForm.$invalid">送出</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancel</button>
+</div>
+

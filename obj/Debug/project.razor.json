@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "c:\\Users\\a8210\\Desktop\\dnn.me\\DesktopModules\\ECPay\\ECPay.csproj",
+  "TargetFramework": "v4.6",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}
